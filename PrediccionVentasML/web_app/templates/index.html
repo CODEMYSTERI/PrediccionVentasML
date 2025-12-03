@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Ventas</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Predicción de Ventas</h1>
+        
+        <div class="card">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="fecha">Selecciona una fecha:</label>
+                    <input type="text" id="fecha" name="fecha" class="date-picker" required>
+                </div>
+                <button type="submit" class="btn-predict">Predecir Ventas</button>
+            </form>
+
+            
+            {% if prediction %}
+                <div class="prediction-result">
+                    <h2>Resultado de la Predicción</h2>
+                    <p class="prediction-value">{{ prediction|int }} unidades</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        flatpickr(".date-picker", {
+            locale: "es",
+            dateFormat: "Y-m-d",
+            defaultDate: "{{ request.form.get('fecha') or 'today' }}",
+            disableMobile: true
+        });
+    </script>
+</body>
+</html>
