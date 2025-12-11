@@ -26,5 +26,7 @@ Ejecuta la aplicación: bash python app.py
 🎯 Uso
 Abre tu navegador y ve a http://localhost:5000
 📁 Estructura del Proyecto:
+
 image
+
 <img width="165" height="481" alt="404110182-aa10b554-32ab-4afa-82f4-c72de19136ee" src="https://github.com/user-attachments/assets/2d3e3608-6bc3-4646-9638-9d4a56148eaa" />
